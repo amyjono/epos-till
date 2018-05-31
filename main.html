@@ -2,33 +2,130 @@
   <h1>EPOS Till</h1>
   <div id="date">{{date | date:'dd/MM/yyyy'}}</div>
   <div id="time">{{date | date:'h:mm a'}}</div>
-</div><!-- .full-width -->
+</div>
+<!-- .full-width -->
 <div class="two-thirds">
   <div class="products-menu">
     <h2>PRODUCTS</h2>
-  </div><!-- .products-menu -->
-  <div class="sub-menu">
+  </div>
+  <!-- .products-menu -->
+  <h3 ng-click="hotDrinksOpen = !hotDrinksOpen" class="sub-menu-title">HOT DRINKS</h3>
+  <div ng-show="hotDrinksOpen" class="sub-menu">
     <ul>
-      <h3 class="sub-menu-title">HOT DRINKS</h3>
-      <li class="item-for-sale" ng-repeat="item in hotDrinksData">
+      <li class="item-for-sale" ng-repeat="item in apiData | filter:{CategoryID:1086251}">
+        <!--item is defined here -->
         <div class="item-name">
           <strong>{{item.Name}}</strong>
         </div>
-        <button class="eat-in" id={{item.Name}}>
-          Eat in: &pound;{{item.SalePrice}}
-        </button>
-        <button class="take-away" id={{item.Name}}>
-          Take away: &pound;{{item.EatOutPrice}}
+        <button ng-click="addItem(item); addPrices(item)" class="eat-in" id={{item.Name}}>
+          Eat in: {{item.SalePrice | currency : "£"}}
         </button>
       </li>
     </ul>
-  </div><!-- .sub-menu -->
-</div><!-- .two-thirds -->
+    <p ng-click="hotDrinksOpen = !hotDrinksOpen" class="collapse-menu">COLLAPSE MENU</p>
+  </div>
+  <!-- .sub-menu -->
+  <h3 ng-click="softDrinksOpen = !softDrinksOpen" class="sub-menu-title">SOFT DRINKS</h3>
+  <div ng-show="softDrinksOpen" class="sub-menu">
+    <ul>
+      <li class="item-for-sale" ng-repeat="item in apiData | filter:{CategoryID:1086253}">
+        <div class="item-name">
+          <strong>{{item.Name}}</strong>
+        </div>
+        <button ng-click="addItem(item); addPrices(item)" class="eat-in" id={{item.Name}}>
+          Eat in: {{item.SalePrice | currency : "£"}}
+        </button>
+      </li>
+    </ul>
+     <p ng-click="softDrinksOpen = !softDrinksOpen" class="collapse-menu">COLLAPSE MENU</p>
+  </div>
+  <!-- .sub-menu -->
+  <h3 ng-click="smoothiesOpen = !smoothiesOpen" class="sub-menu-title">SMOOTHIES</h3>
+  <div ng-show="smoothiesOpen" class="sub-menu">
+    <ul>
+      <li class="item-for-sale" ng-repeat="item in apiData | filter:{CategoryID:1086255}">
+        <div class="item-name">
+          <strong>{{item.Name}}</strong>
+        </div>
+        <button ng-click="addItem(item); addPrices(item)" class="eat-in" id={{item.Name}}>
+          Eat in: {{item.SalePrice | currency : "£"}}
+        </button>
+      </li>
+    </ul>
+     <p ng-click="smoothiesOpen = !smoothiesOpen" class="collapse-menu">COLLAPSE MENU</p>
+  </div>
+  <!-- .sub-menu -->
+  <h3 ng-click="beerOpen = !beerOpen" class="sub-menu-title">BEER</h3>
+  <div ng-show="beerOpen" class="sub-menu">
+    <ul>
+      <li class="item-for-sale" ng-repeat="item in apiData | filter:{CategoryID:1086256}">
+        <div class="item-name">
+          <strong>{{item.Name}}</strong>
+        </div>
+        <button ng-click="addItem(item); addPrices(item)" class="eat-in" id={{item.Name}}>
+          Eat in: {{item.SalePrice | currency : "£"}}
+        </button>
+      </li>
+    </ul>
+     <p ng-click="beerOpen = !beerOpen" class="collapse-menu">COLLAPSE MENU</p>
+  </div>
+  <!-- .sub-menu -->
+  <h3 ng-click="whiteWineOpen = !whiteWineOpen" class="sub-menu-title">WHITE WINE</h3>
+  <div ng-show="whiteWineOpen" class="sub-menu">
+    <ul>
+      <li class="item-for-sale" ng-repeat="item in apiData | filter:{CategoryID:1086258}">
+        <div class="item-name">
+          <strong>{{item.Name}}</strong>
+        </div>
+        <button ng-click="addItem(item); addPrices(item)" class="eat-in" id={{item.Name}}>
+          Eat in: {{item.SalePrice | currency : "£"}}
+        </button>
+      </li>
+    </ul>
+     <p ng-click="whiteWineOpen = !whiteWineOpen" class="collapse-menu">COLLAPSE MENU</p>
+  </div>
+  <!-- .sub-menu -->
+  <h3 ng-click="redWineOpen = !redWineOpen" class="sub-menu-title">RED WINE</h3>
+  <div ng-show="redWineOpen" class="sub-menu">
+    <ul>
+      <li class="item-for-sale" ng-repeat="item in apiData | filter:{CategoryID:1086259}">
+        <div class="item-name">
+          <strong>{{item.Name}}</strong>
+        </div>
+        <button ng-click="addItem(item); addPrices(item)" class="eat-in" id={{item.Name}}>
+          Eat in: {{item.SalePrice | currency : "£"}}
+        </button>
+      </li>
+    </ul>
+     <p ng-click="redWineOpen = !redWineOpen" class="collapse-menu">COLLAPSE MENU</p>
+  </div>
+  <!-- .sub-menu -->
+    <h3 ng-click="cocktailsOpen = !cocktailsOpen" class="sub-menu-title">COCKTAILS</h3>
+  <div ng-show="cocktailsOpen" class="sub-menu">
+    <ul>
+      <li class="item-for-sale" ng-repeat="item in apiData | filter:{CategoryID:1086265}">
+        <div class="item-name">
+          <strong>{{item.Name}}</strong>
+        </div>
+        <button ng-click="addItem(item); addPrices(item)" class="eat-in" id={{item.Name}}>
+          Eat in: {{item.SalePrice | currency : "£"}}
+        </button>
+      </li>
+    </ul>
+     <p ng-click="cocktailsOpen = !cocktailsOpen" class="collapse-menu">COLLAPSE MENU</p>
+  </div>
+  <!-- .sub-menu -->
+</div>
+<!-- .two-thirds -->
 <div class="one-third">
   <div class="total">
-    <h3>TOTAL</h3>
-    <ul>
-      <li id="list">List goes here: {{list}}</li>
+    <ul id="total-list">
+      <li>{{itemList.toString()}}</li>
+      <!-- toString removes sqaure brackets -->
     </ul>
-  </div><!-- .total -->
-</div><!-- .one-third -->
+    <h3>TOTAL: £{{totalPrice}}</h3>
+    <p ng-click="clearOrder()" id="clear-order">CLEAR ORDER</p>
+  </div>
+  <!-- .total -->
+</div>
+<!-- .one-third -->
