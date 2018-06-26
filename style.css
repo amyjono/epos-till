@@ -91,6 +91,11 @@ html {
   float: left;
 }
 
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
 li,
 ul {
   display: block;
@@ -118,14 +123,18 @@ button:active,
   background-color: #2c2f33;
 }
 
-.collapse-menu {
+.collapse-menu a {
   color: #0b4d7f;
+}
+
+.collapse-menu a:hover {
+  color: #ffffff;
 }
 
 #clear-order {
   width: 80px;
   font-size: 12px;
-  padding: 5px;
+  padding: 6px;
   background-color: #ce0000;
   border-radius: 3px;
 }

@@ -10,13 +10,22 @@
       <h2>PRODUCTS</h2>
     </div>
     <!-- .products-menu -->
-    <a href="#/hotDrinks"><h3 class="sub-menu-title">HOT DRINKS</h3></a>
-    <a href="#/softDrinks"><h3 class="sub-menu-title">SOFT DRINKS</h3></a>
-    <a href="#/smoothies"><h3 class="sub-menu-title">SMOOTHIES</h3></a>
-    <a href="#/beer"><h3 class="sub-menu-title">BEER</h3></a>
-    <a href="#/whiteWine"><h3 class="sub-menu-title">WHITE WINE</h3></a>
-    <a href="#/redWine"><h3 class="sub-menu-title">RED WINE</h3></a>
-    <a href="#/cocktails"><h3 class="sub-menu-title">COCKTAILS</h3></a>
+      <h3 class="sub-menu-title">SOFT DRINKS</h3>
+      <div class="sub-menu">
+        <ul>
+          <li class="item-for-sale" ng-repeat="item in apiData | filter:{CategoryID:1086253}">
+            <!--item is defined here -->
+            <div class="item-name">
+              <strong>{{item.Name}}</strong>
+            </div>
+            <button ng-click="addItem(item); addPrices(item)" class="eat-in" id={{item.Name}}>
+              Eat in: {{item.SalePrice | currency : "£"}}
+            </button>
+          </li>
+        </ul>
+        <p class="collapse-menu"><a href="#/main">BACK TO DRINKS MENU</a></p>
+      </div>
+    <!-- .sub-menu -->
   </div>
   <!-- .two-thirds -->
   <div class="one-third">
